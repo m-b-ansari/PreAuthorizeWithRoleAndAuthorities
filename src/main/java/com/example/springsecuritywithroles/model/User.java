@@ -1,5 +1,6 @@
 package com.example.springsecuritywithroles.model;
 
+import com.example.springsecuritywithroles.enums.Role;
 import com.sun.istack.internal.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,11 +8,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table(name = "usr")
 @Setter
 @Getter
 public class User implements Serializable {
@@ -29,6 +29,7 @@ public class User implements Serializable {
     @NotNull
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "user")
-    private Set<Role> roles;
+    @Column
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 }

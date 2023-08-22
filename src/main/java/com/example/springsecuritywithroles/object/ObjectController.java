@@ -17,6 +17,7 @@ public class ObjectController {
         this.service = service;
     }
 
+//    @PreAuthorize("hasAuthority('write')")
     @PostMapping("/post")
     public ResponseEntity<Object> save(@RequestBody Object object) {
         return new ResponseEntity<>(service.save(object), HttpStatus.CREATED);

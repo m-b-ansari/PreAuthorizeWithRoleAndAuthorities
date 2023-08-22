@@ -8,5 +8,8 @@ CREATE TABLE IF NOT EXISTS obj
 
 CREATE TABLE IF NOT EXISTS usr
 (
-
+    id       uuid not null primary key,
+    username varchar(255),
+    password varchar(255),
+    role     varchar(10)
 )
