@@ -4,4 +4,9 @@ CREATE TABLE IF NOT EXISTS obj
     name      varchar(255),
     last_name varchar(255),
     number    int
+);
+
+CREATE TABLE IF NOT EXISTS usr
+(
+
 )

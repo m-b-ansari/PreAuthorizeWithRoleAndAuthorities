@@ -7,26 +7,28 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name = "obj")
+@Table
 @Setter
 @Getter
-public class Object implements Serializable {
+public class User implements Serializable {
     @Id
-    @Column(nullable = false)
+    @Column
     @GeneratedValue(generator = "hibernate-uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @NotNull
     private UUID id;
 
     @Column
-    private String name;
+    @NotNull
+    private String username;
 
     @Column
-    private String lastName;
+    @NotNull
+    private String password;
 
-    @Column
-    private Integer number;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "user")
+    private Set<Role> roles;
 }

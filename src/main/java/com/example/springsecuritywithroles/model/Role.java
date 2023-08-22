@@ -1,6 +1,5 @@
 package com.example.springsecuritywithroles.model;
 
-import com.sun.istack.internal.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -10,23 +9,20 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "obj")
+@Table(name = "rle")
 @Setter
 @Getter
-public class Object implements Serializable {
+public class Role implements Serializable {
     @Id
-    @Column(nullable = false)
+    @Column
     @GeneratedValue(generator = "hibernate-uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @NotNull
     private UUID id;
 
     @Column
-    private String name;
+    private String value;
 
-    @Column
-    private String lastName;
-
-    @Column
-    private Integer number;
+    @JoinColumn(referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    private User user;
 }

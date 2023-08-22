@@ -1,7 +1,6 @@
-package com.example.springsecuritywithroles;
+package com.example.springsecuritywithroles.object;
 
 import com.example.springsecuritywithroles.model.Object;
-import com.example.springsecuritywithroles.model.ObjectService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/security")
-public class Controller {
+public class ObjectController {
     private final ObjectService service;
 
-    public Controller(ObjectService service) {
+    public ObjectController(ObjectService service) {
         this.service = service;
     }
 
