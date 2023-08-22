@@ -5,6 +5,8 @@
 //import com.example.springsecuritywithroles.user.UserRepository;
 //import org.springframework.stereotype.Component;
 //
+//import java.util.*;
+//
 //@Component
 //public class CommandLineRunner implements org.springframework.boot.CommandLineRunner {
 //    private final UserRepository repository;
@@ -15,10 +17,26 @@
 //
 //    @Override
 //    public void run(String... args) throws Exception {
-//        User user = new User();
-//        user.setUsername("moh");
-//        user.setPassword("1234");
-//        user.setRole(Role.WRITE);
-//        repository.save(user);
+//        User writer = new User();
+//        writer.setUsername("writer");
+//        writer.setPassword("1234");
+//        writer.setRole(Role.WRITE);
+//        User reader = new User();
+//        reader.setUsername("reader");
+//        reader.setPassword("1234");
+//        reader.setRole(Role.READ);
+//        User patcher = new User();
+//        patcher.setUsername("patcher");
+//        patcher.setPassword("1234");
+//        patcher.setRole(Role.PATCH);
+//        User deleter = new User();
+//        deleter.setUsername("deleter");
+//        deleter.setPassword("1234");
+//        deleter.setRole(Role.DELETE);
+//        User admin = new User();
+//        admin.setUsername("admin");
+//        admin.setPassword("1234");
+//        admin.setRole(Role.ADMIN);
+//        repository.saveAll(Arrays.asList(admin, deleter, patcher, reader, writer));
 //    }
 //}

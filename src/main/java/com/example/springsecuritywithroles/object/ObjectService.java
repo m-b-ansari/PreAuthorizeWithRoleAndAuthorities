@@ -1,8 +1,9 @@
 package com.example.springsecuritywithroles.object;
 
 import com.example.springsecuritywithroles.model.Object;
-import com.example.springsecuritywithroles.object.ObjectRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 public class ObjectService {
@@ -14,5 +15,9 @@ public class ObjectService {
 
     public Object save(Object object) {
         return repository.save(object);
+    }
+
+    public Object getOne(UUID uuid) {
+        return repository.findById(uuid).get();
     }
 }

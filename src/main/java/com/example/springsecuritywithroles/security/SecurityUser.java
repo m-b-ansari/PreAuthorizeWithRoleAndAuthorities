@@ -20,7 +20,7 @@ public class SecurityUser implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority(user.getRole().name()));
+        user.getRole().getAuthorities().forEach(x -> authorities.add(new SimpleGrantedAuthority(x)));
         return authorities;
     }
 
